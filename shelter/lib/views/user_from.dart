@@ -1,12 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:shelter/ui/routes/routes.dart';
+import 'package:shelter/business_logic/form.dart';
 import 'package:shelter/widgets/violetButton.dart';
 import 'package:toggle_switch/toggle_switch.dart';
-
 import '../const/app_colors.dart';
 import '../styles/styles.dart';
 
@@ -16,6 +14,8 @@ class UserFrom extends StatelessWidget {
   TextEditingController _addressController = TextEditingController();
 
   Rx<TextEditingController> _dobController = TextEditingController().obs;
+  String gender = 'Male';
+  // String? dob;
   Rx<DateTime> selectedTime = DateTime.now().obs;
   _selectedDate(BuildContext context) async {
     final selectedDate = await showDatePicker(
@@ -73,7 +73,9 @@ class UserFrom extends StatelessWidget {
                             fontSize: 15.sp,
                           ),
                           suffixIcon: IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                _selectedDate(context);
+                              },
                               icon: Icon(Icons.calendar_month_outlined))),
                     )),
                 SizedBox(
@@ -84,13 +86,25 @@ class UserFrom extends StatelessWidget {
                   totalSwitches: 2,
                   labels: ['Male', 'Female'],
                   onToggle: (index) {
+                    if (index == 0) {
+                      gender = 'Male';
+                    } else {
+                      gender = 'Female';
+                    }
                     print('switched to: $index');
                   },
                 ),
                 SizedBox(
                   height: 30.h,
                 ),
-                VioletButton('Submit', ()=> Get.toNamed(privacyPolicy)),
+                VioletButton(
+                    'Submit',
+                    () => UsersInfo().sendFormDataToDB(
+                        _nameController.text,
+                        int.parse(_phoneController.text),
+                        _addressController.text,
+                        _dobController.string,
+                        gender)),
               ],
             ),
           ),

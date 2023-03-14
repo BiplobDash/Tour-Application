@@ -9,6 +9,8 @@ import 'package:shelter/styles/styles.dart';
 import 'package:shelter/ui/routes/routes.dart';
 import 'package:shelter/widgets/violetButton.dart';
 
+import '../business_logic/auth.dart';
+
 class SignUp extends StatelessWidget {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -55,7 +57,10 @@ class SignUp extends StatelessWidget {
                 SizedBox(
                   height: 40.h,
                 ),
-                VioletButton('Create Account', () => Get.toNamed(userFrom)),
+                VioletButton('Create Account', () => Auth().registration(
+                  _emailController.text,
+                  _passwordController.text,
+                  context)),
                 SizedBox(
                   height: 10.h,
                 ),
