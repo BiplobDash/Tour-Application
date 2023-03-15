@@ -3,6 +3,9 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shelter/bottom_nav_controller/pages/nav_add.dart';
+import 'package:shelter/bottom_nav_controller/pages/nav_favrt.dart';
+import 'package:shelter/bottom_nav_controller/pages/nav_home.dart';
 import 'package:shelter/const/app_strings.dart';
 
 class BottomNavController extends StatelessWidget {
@@ -10,15 +13,9 @@ class BottomNavController extends StatelessWidget {
   RxBool _drawer = false.obs;
 
   final _pages = [
-    Container(
-      color: Colors.green,
-    ),
-    Container(
-      color: Colors.blue,
-    ),
-    Container(
-      color: Colors.red,
-    ),
+    NavHome(),
+    NavAdd(),
+    NavFavorite(),
   ];
 
   @override
