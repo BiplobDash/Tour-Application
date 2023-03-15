@@ -59,6 +59,11 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: AppStrings.appname,
           theme: ThemeData(
+            appBarTheme: AppBarTheme(
+              titleTextStyle: TextStyle(
+                color: Colors.black,
+              )
+            ),
               primarySwatch: Colors.blue,
               textTheme: GoogleFonts.poppinsTextTheme(
                   Theme.of(context).textTheme.apply()),

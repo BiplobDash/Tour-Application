@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:shelter/auth/sign_in.dart';
 import 'package:shelter/auth/sign_up.dart';
 import 'package:shelter/bottom_nav_controller/bottom_nav_controller.dart';
+import 'package:shelter/views/main_home_screen.dart';
 import 'package:shelter/views/onboarding_screen.dart';
 import 'package:shelter/views/privacy_policy.dart';
 import 'package:shelter/views/splash_screen.dart';
@@ -13,7 +14,7 @@ const String signUp = '/sign-up-screen';
 const String signIn = '/sign-in-screen';
 const String userFrom = '/user-from-screen';
 const String privacyPolicy = '/privacy-policy-screen';
-const String bottomNavController = '/bottom-nav-screen';
+const String mainHomeScreen = '/main-home-screen';
 
 // Control our page route
 List<GetPage> getpages = [
@@ -23,5 +24,5 @@ List<GetPage> getpages = [
   GetPage(name: signIn, page: () => SignIn()),
   GetPage(name: userFrom, page: () => UserFrom()),
   GetPage(name: privacyPolicy, page: () => PrivacyPolicy()),
-  GetPage(name: bottomNavController, page: () => BottomNavController()),
+  GetPage(name: mainHomeScreen, page: () => MainHomeScreen()),
 ];

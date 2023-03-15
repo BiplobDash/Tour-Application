@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +16,6 @@ class UserFrom extends StatelessWidget {
 
   Rx<TextEditingController> _dobController = TextEditingController().obs;
   String gender = 'Male';
-  // String? dob;
   Rx<DateTime> selectedTime = DateTime.now().obs;
   _selectedDate(BuildContext context) async {
     final selectedDate = await showDatePicker(

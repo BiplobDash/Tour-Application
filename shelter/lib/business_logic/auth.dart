@@ -37,7 +37,7 @@ class Auth {
       var authCredential = userCredential.user;
       if(authCredential!.uid.isNotEmpty){
         Fluttertoast.showToast(msg: "Login Successful");
-        Get.toNamed(bottomNavController);
+        Get.toNamed(mainHomeScreen);
       }else{
         print('Signup Failed');
       }

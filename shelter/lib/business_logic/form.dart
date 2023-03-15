@@ -15,7 +15,7 @@ class UsersInfo {
         'name': name,
         'phone': phone,
         'address': address,
-        'dob': dob,
+        'dob': dob.isDateTime,
         'gender': gender
       }).whenComplete(() {
         Fluttertoast.showToast(msg: "Added Successfully");

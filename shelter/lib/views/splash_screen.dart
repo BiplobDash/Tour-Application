@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:shelter/const/app_strings.dart';
 import 'package:shelter/styles/styles.dart';
 import 'package:shelter/ui/routes/routes.dart';
@@ -13,10 +14,20 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final box = GetStorage();
+  Future chooseScreen() async {
+    var userId = box.read('uid');
+    if (userId == null) {
+      Get.toNamed(onboarding);
+    } else {
+      Get.toNamed(mainHomeScreen);
+    }
+  }
+
   @override
   void initState() {
     // TODO: implement initState
-    Future.delayed(Duration(seconds: 3), () => Get.toNamed(onboarding));
+    Future.delayed(Duration(seconds: 3), () => chooseScreen());
     super.initState();
   }
 

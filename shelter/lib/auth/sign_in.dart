@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shelter/business_logic/auth.dart';
 import 'package:shelter/const/app_colors.dart';
 import 'package:shelter/styles/styles.dart';
 import 'package:shelter/widgets/violetButton.dart';
@@ -44,7 +45,7 @@ class SignIn extends StatelessWidget {
                 SizedBox(
                   height: 40.h,
                 ),
-                VioletButton('Login', () {}),
+                VioletButton('Login', () => Auth().login(_emailController.text, _passwordController.text, context)),
                 SizedBox(
                   height: 10.h,
                 ),
