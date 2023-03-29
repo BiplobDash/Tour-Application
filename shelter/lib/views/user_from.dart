@@ -24,6 +24,7 @@ class UserFrom extends StatelessWidget {
         firstDate: DateTime(2000),
         lastDate: DateTime(2025));
 
+    // ignore: unrelated_type_equality_checks
     if (selectedDate != null && selectedDate != selectedTime) {
       _dobController.value.text =
           '${selectedTime.value.day} - ${selectedTime.value.month} - ${selectedTime.value.year}';
@@ -76,7 +77,7 @@ class UserFrom extends StatelessWidget {
                               onPressed: () {
                                 _selectedDate(context);
                               },
-                              icon: Icon(Icons.calendar_month_outlined))),
+                              icon: const Icon(Icons.calendar_month_outlined))),
                     )),
                 SizedBox(
                   height: 20.h,
@@ -114,6 +115,7 @@ class UserFrom extends StatelessWidget {
   }
 }
 
+// ignore: non_constant_identifier_names
 Widget FromField(controller, inputType, name) {
   return TextFormField(
     controller: controller,

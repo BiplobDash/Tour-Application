@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:shelter/auth/sign_in.dart';
 import 'package:shelter/auth/sign_up.dart';
-import 'package:shelter/bottom_nav_controller/bottom_nav_controller.dart';
+import 'package:shelter/bottom_nav_controller/pages/nav_add_last_data.dart';
 import 'package:shelter/views/Drawer/faq.dart';
 import 'package:shelter/views/Drawer/how_to_use.dart';
 import 'package:shelter/views/Drawer/privacy.dart';
@@ -13,6 +13,7 @@ import 'package:shelter/views/privacy_policy.dart';
 import 'package:shelter/views/splash_screen.dart';
 import 'package:shelter/views/user_from.dart';
 
+
 const String splash = '/splash-screen';
 const String onboarding = '/onboarding-screen';
 const String signUp = '/sign-up-screen';
@@ -20,12 +21,13 @@ const String signIn = '/sign-in-screen';
 const String userFrom = '/user-from-screen';
 const String privacyPolicy = '/privacy-policy-screen';
 const String mainHomeScreen = '/main-home-screen';
-
+const String seeAllScreen = '/seeAll-screen';
 const String support = '/support-screen';
 const String privacy = '/privacy-screen';
 const String faq = '/faq-screen';
 const String howToUse = '/how-to-use-screen';
 const String settings = '/settings-screen';
+const String navAddLastStep = '/navAddLastStep-screen';
 
 // Control our page route
 List<GetPage> getpages = [
@@ -41,4 +43,11 @@ List<GetPage> getpages = [
   GetPage(name: faq, page: () => Faq()),
   GetPage(name: howToUse, page: () => HowToUse()),
   GetPage(name: settings, page: () => Settings()),
+  // GetPage(name: seeAllScreen, page: (){}),
+  GetPage(name: navAddLastStep, page: ()
+  {
+    NavAddLastStep _addLastStep = Get.arguments;
+    return _addLastStep;
+  }
+  )
 ];

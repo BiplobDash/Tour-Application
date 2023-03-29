@@ -13,7 +13,7 @@ class BottomNavController extends StatelessWidget {
   RxBool _drawer = false.obs;
 
   final _pages = [
-    NavHome(),
+    navHome(),
     NavAdd(),
     NavFavorite(),
   ];

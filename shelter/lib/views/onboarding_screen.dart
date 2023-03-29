@@ -112,6 +112,7 @@ class OnboardingScreen extends StatelessWidget {
                                         spreadRadius: 1.0,
                                       )
                                     ]),
+                                    child: Icon(Icons.arrow_forward_ios_outlined, size: 20.sp,),
                               ),
                             )
                           ],
